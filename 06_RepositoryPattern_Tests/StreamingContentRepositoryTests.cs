@@ -18,7 +18,8 @@ namespace _06_RepositoryPattern_Tests
 
         
         [TestInitialize]  
-        public void Arrange()  // Test Initialize says that this method must run at the beginning of every single test, Arrange does NOT have to the be name, it does have to be public, and void to not return anything
+        public void Arrange()  // Test Initialize says that this method must run at the beginning of every single test, Arrange does NOT have to the be name, it does have to be public, and.. 
+            // ...void to not return anything
         {
             // In this method we can assign a value to the delacared fields _repo and _content
             _repo = new StreamingContentRepository(); // Here we have our streaming content reposiroty field that is accessable to all methods
@@ -60,7 +61,7 @@ namespace _06_RepositoryPattern_Tests
 
             // ----- ARRANGE ----- // --> SETTING UP THE PLAYING FIELD
 
-            // Start by getting bout our content and our repository
+            // Start by getting out our content and our repository
             StreamingContent content = new StreamingContent(); // Streaming content object            
             content.Title = "Toy Story"; // Give our content a name, or title            
             StreamingContentRepository repository = new StreamingContentRepository(); // Streaming content repository
@@ -94,7 +95,7 @@ namespace _06_RepositoryPattern_Tests
         // 5) We have to then verify the update worked
         // 6) We then have to assert 
 
-        // For all of our tests we can set up some other methods and other content to make it where don't have to do eveyr single step every single time 
+        // For all of our tests we can set up some other methods and other content to make it where we don't have to do every single step every single time 
         // NOW SCROLL TO TOP OF UNIT TEST FOR NEXT STEPS
 
         [TestMethod]
@@ -104,8 +105,8 @@ namespace _06_RepositoryPattern_Tests
             // TestIntitilaize
             // We also want to add new content, whatever our udpated content is going to be 
 
-            StreamingContent newContent = new StreamingContent("Rubber 2", "A car tire comes to life with the power to make people explode and goes on a murderous rampage thorugh the Californian desert.", "R", 5.8, false,
-                GenreType.RomCom);
+            StreamingContent newContent = new StreamingContent("Rubber 2", "A car tire comes to life with the power to make people explode and goes on a murderous rampage thorugh the Californian desert.", "R", 5.8, 
+                false, GenreType.RomCom);
 
             // Act
             bool updateResult = _repo.UpdateExistingContent("Rubber", newContent);
@@ -127,8 +128,8 @@ namespace _06_RepositoryPattern_Tests
             // TestIntitilaize
             // Copy/Paste from test methid UpdateExistingContent_ShouldReturnTrue()
 
-            StreamingContent newContent = new StreamingContent("Rubber 2", "A car tire comes to life with the power to make people explode and goes on a murderous rampage thorugh the Californian desert.", "R", 5.8, false,
-                GenreType.RomCom);
+            StreamingContent newContent = new StreamingContent("Rubber 2", "A car tire comes to life with the power to make people explode and goes on a murderous rampage thorugh the Californian desert.", "R", 5.8,
+                false, GenreType.RomCom);
 
             // Act
             bool updateResult = _repo.UpdateExistingContent(originalTitle, newContent);

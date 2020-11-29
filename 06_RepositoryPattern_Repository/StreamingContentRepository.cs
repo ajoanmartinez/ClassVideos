@@ -48,7 +48,7 @@ namespace _06_RepositoryPattern_Repository
         // Instead when creating a FIELD we are making a VARIABLE IN THE CLASS that can be USED EVERYWHERE 
         // Scope - Anytihng that's made in a class, or anything that can see it's siblings can be used
         // IMPORTANT NOTE ON SCOPE -- SEE StreamingConentRepositoryClass 
-        // We apply the same conceopt of starting outward and working inward to our field
+        // We apply the same concept of starting outward and working inward to our field
         // I.e., we are going to make a field, which is a variable, that can be used in every single one of our CRUD methods
         // I.e, each mehtod will be able to use the same list, _listOfContent, that way we have a persisting object that holds of all our different StreamingContent objects
 
@@ -67,10 +67,10 @@ namespace _06_RepositoryPattern_Repository
         public void AddContentToList(StreamingContent content) // First Method, It's adding content to list, taking in streaming content object called content, it's not returning anything
         {
             _listOfContent.Add(content); // to add content to the list, we are calling the field from inside the method, then calling the .Add method, 
-            //and because we calling the .Add method we have to take in content from outsdie to add to list. We don't know where the content is coming from, just that we have to take "content" in,
+            //and because we are calling the .Add method we have to take in content from outsdie to add to list. We don't know where the content is coming from, just that we have to take "content" in,
             // and then add it to the list, _listOfContent
             
-            //NOTE: We are putting the underscore here in front of listOfContent, and sayign that anything that has an underscore that the beginning of its name is going to be a field
+            //NOTE: We are putting the underscore here in front of listOfContent, and saying that anything that has an underscore at the beginning of its name is going to be a field
         }
 
         // Note when it pertains to our return type, we want our methods to follow the SINGLE RESPONSIBILITY PRINCIPLE
@@ -131,7 +131,7 @@ namespace _06_RepositoryPattern_Repository
 
                 // Here we are taking the parameter of our new content and setting it as the parameter of our old content
                 // Taking the new values taken from the new streaming content object, and assigning them to the existing object on that list 
-                // Because these are references, we have a list that is a reference to some address, so we want to to is say old content in spot B in that list, here are your new values
+                // Because these are references, we have a list that is a reference to some address, so we want to do is say, "Old content in spot B in that list, here are your new values."
                 // I.e., item B is staying in that same index, we are just updating its values
             }
             else
@@ -139,7 +139,7 @@ namespace _06_RepositoryPattern_Repository
                 return false;
             }
 
-            // Refacting the return type here from void to bool allows us to call this method from somewhere else it's going to give us a true false, we get a little bit of feedback
+            // Refacting the return type here from void to bool allows us to call this method from somewhere else it's going to give us a true/false, we get a little bit of feedback
         }
         
         
@@ -148,12 +148,13 @@ namespace _06_RepositoryPattern_Repository
 
         // -----DELETE ----- //
 
-        public bool RemoveConetentFromList(string title) // The pareters here can be set to either take in a title, and use content by title, or take in the full streaming content object, here we are just passing title
+        public bool RemoveConetentFromList(string title) // The pareters here can be set to either take in a title, and use content by title, or take in the full streaming content object, here we are just passing... 
+            // ...title
         {
             // First need to find that content by its title 
             StreamingContent content = GetContentByTitle(title);
 
-            // Now we are taking title from RemoveContentFromList parameter, passing it to GetConentByTitle parameter, where it will then iterate through the Helper Method to find it, and if it is found
+            // Now we are taking title from RemoveContentFromList parameter, passing it to GetConentByTitle parameter, where it will then iterate through the HELPER METHOD to find it, and if it is found
             // it will return it here, and if it does not, it will return null here
 
             if(content == null)
@@ -163,7 +164,7 @@ namespace _06_RepositoryPattern_Repository
 
             // If not null, then we know we found the content, but we need to check to make sure it was successfully removed from list
 
-            int initialCount = _listOfContent.Count; // Count is a proper of _listOfContent that will give us the number of elements in the list
+            int initialCount = _listOfContent.Count; // Count is a property of _listOfContent that will give us the number of elements in the list
             _listOfContent.Remove(content); // Then call our list of content, remove, and then remove content, because content should be on this list
 
             // Then we compare our initial count to the current count, and return true to our bool method 
@@ -188,12 +189,12 @@ namespace _06_RepositoryPattern_Repository
 
         // For both UPDATE and DELETE, because we are working with StreamingContent objects, we need to find the correct streaming content object that we are looking for
         // So we need to build a HELPER METHOD after all of our CRUD
-        // If it's job is just to help the other methods, and NOT be an open accessable part, so we make it private to make part of this class only so that it cannot be accessed from the outside
+        // If it's job is just to help the other methods, and NOT be an open accessable part, then we make it private to make part of this class only so that it cannot be accessed from the outside
         // If it's job is to be accessable to outsdie, then we make public ----- (ASK EFA'S HERE THE LIKELY SCNEARIOS THIS IS NEEDED) ------
         // So.... our goal with the below helper method is to get the correct streaming content based on some parameter
         // The below method will get streaming content based on the title parameter
 
-        public StreamingContent GetContentByTitle(string title) // We have called the method, or and been given title
+        public StreamingContent GetContentByTitle(string title) // We have called the method, and been given title
         {
             // Now we need to find title in the _listofContent, however the list does not hold strings, it holds streaming content
             // So we will need to go through each streaming content, and check its title, to see if it is the correct one
@@ -201,7 +202,7 @@ namespace _06_RepositoryPattern_Repository
 
             foreach(StreamingContent content in _listOfContent)     //This allows us to take of _listOfContent and iterate for each Streaming Content object in there, call it content, and then do the following
             {
-                if(content.Title == title) // So if in the list content = title, then
+                if(content.Title.ToLower() == title.ToLower()) // So if in the list content = title, then
                 {
                     return content; // return that content object
                 }
