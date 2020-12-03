@@ -109,7 +109,7 @@ namespace _06_RepositoryPattern_Repository
             StreamingContent oldContent = GetContentByTitle(originalTitle);
 
             // Then update the content
-            // Remember it's upossible that we could be passed a null object
+            // Remember it's possible that we could be passed a null object
             if(oldContent != null)
             {
 
