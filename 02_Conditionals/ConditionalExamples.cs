@@ -5,7 +5,7 @@ namespace _02_Conditionals
 {
     [TestClass]
     public class ConditionalExamples
-    {
+    {        
 
         //Conditionals are a chunk of code that evaluates some condition
         //Life example, if a person his hungry, then the person should eat
@@ -15,6 +15,8 @@ namespace _02_Conditionals
         [TestMethod]
         public void Booleans()
         {
+                
+            
             //Boolean is a true/false statement
             //In C# can show booleans as a type
 
@@ -130,6 +132,13 @@ namespace _02_Conditionals
             bool isAge = (age == 24) ? true : false;
 
         }
+
+        
+
+        
+       
+        
+      
 
     }
 
