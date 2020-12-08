@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace _06_RepositoryPatter_Console
+namespace _06_RepositoryPattern_Console
 {  
     
     // Now that this UI class has been creaetd, we need a way to kickstart the application

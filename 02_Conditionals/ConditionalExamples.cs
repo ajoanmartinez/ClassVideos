@@ -104,7 +104,7 @@ namespace _02_Conditionals
                 case 19:
                     //code for if age is 19
                     break;
-                case 20;
+                case 20:
                     // code for if age is 20
                     break;
                 case 21:
