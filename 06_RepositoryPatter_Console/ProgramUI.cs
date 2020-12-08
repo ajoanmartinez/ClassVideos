@@ -5,9 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-<<<<<<<< HEAD:06_RepositoryPatter_Console/ProgramUI.cs
-namespace _06_RepositoryPattern_Console
-========
+
 namespace _06_RepositoryPatter_Console
 {  
     
